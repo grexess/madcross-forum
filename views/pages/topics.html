@@ -1,6 +1,6 @@
 <div class="page">
     <h1>Topics</h1>
-    <div ng-repeat="topic in topics">
-        <a ui-sref="topic({topicId: topic._id})">{{ topic.name }}</a>
+    <div class="w3-bar w3-blue" >
+        <a class="w3-bar-item w3-button" ng-repeat="topic in topics" ui-sref="topic({topicId: topic._id})">{{ topic.name }}</a>
     </div>
 </div>

@@ -1,15 +1,25 @@
 <div class="page">
     <h1>{{ topic.name }}</h1>
-    <ul>
-        <li ng-repeat="thread in threads">
-            <a ui-sref="thread({threadId: thread._id})">{{ thread.content }}</a>
-            by {{ thread.author }} at {{ thread.createdAt | date }}
+
+    <h2>Starte eine neue Diskussion</h2>
+    <form ng-submit="createThread(thread)">
+        <input type="text" placeholder="Start Diskussion..." ng-model="thread.content">
+        <button type="submit">Ab geht's!</button>
+    </form>
+
+    <ul class="w3-ul">
+        <li ng-repeat="thread in threads" ng-click="clickTopic()" id="{{ thread._id }}" class="w3-bar w3-hover-light-gray w3-animate-opacity">
+            <div class="w3-card">
+                <div class="w3-container w3-gray">
+                    <h5>{{ thread.content }}</h5>
+                </div>
+                <div class="w3-container">
+                    <p>{{ thread.author }} {{ thread.createdAt | date }}</p>
+                </div>
+                <div  class="w3-container" style="display:none">
+                        <p>bla</p>
+                    </div>
+            </div>
         </li>
     </ul>
-    
-    <h2>Create a new thread</h2>
-    <form ng-submit="createThread(thread)">
-        <input type="text" placeholder="Start discussion..." ng-model="thread.content">
-        <button type="submit">Create</button>
-    </form>
 </div>

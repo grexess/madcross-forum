@@ -26,7 +26,7 @@ Meteor.publish('post', function(id){
 });
 
 if (Topics.find().count() === 0) {
-    _.each(['Allgmein', 'Events'], function(topicName){
+    _.each(['MadEast', 'Andere Events', 'Sonstiges'], function(topicName){
         Topics.insert({name: topicName});
     });
 }

@@ -2,10 +2,9 @@
     <p>{{ thread.content }}</p>
     <p>by {{ thread.author }} at {{ thread.createdAt | date }}</p>
     
-    <ul>
+    <ul class="w3-ul">
         <li ng-repeat="post in posts">
-            <p ng-bind="post.content"></p>
-            by {{ post.author }} at {{ post.createdAt | date }}
+                <div ng-bind="post.content" class="w3-panel w3-card w3-yellow"><p>by {{ post.author }} at {{ post.createdAt | date }}</p></div>  
         </li>
     </ul>
     

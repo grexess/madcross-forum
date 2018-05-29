@@ -1,6 +1,16 @@
 <div class="page">
+    
     <h1>Themen</h1>
+    
+    
+    <!-- Topics navigation -->
     <div class="w3-bar w3-blue" >
-        <a class="w3-bar-item w3-button" ng-click="clickTopics()" ng-repeat="topic in topics" ui-sref="topic({topicId: topic._id})">{{ topic.name }}</a>
+        <!-- <a class="w3-bar-item w3-button" ng-click="clickTopics()" ng-repeat="topic in topics" ui-sref="topic({topicId: topic._id})">{{ topic.name }}</a> -->
+        <a class="w3-bar-item w3-button" ng-click="clickTopics(topic._id)" ng-repeat="topic in topics" href="#{{ topic._id }}">{{ topic.name }}</a>
     </div>
+
+    <div ng-repeat="topic in topics" class="w3-container w3-padding-32 prvCntDiv" id="{{ topic._id }}" ng-hide="!$first">
+        <p>{{ topic.name }}</p>
+    </div>
+
 </div>

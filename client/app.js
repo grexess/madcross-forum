@@ -26,8 +26,10 @@ angular.module('forum', ['angular-meteor', 'ui.router', 'accounts.ui'])
     })
     .controller('TopicsContoller', function($scope){
         $scope.subscribe('topics');
-        $scope.clickTopics = function() {
-            alert(this._id);
+        $scope.clickTopics = function(id) {
+            alert(id);
+            $('.prvCntDiv').hide();
+            $('#' + id).show();
         };
         $scope.helpers({
             topics: function() {
@@ -39,8 +41,8 @@ angular.module('forum', ['angular-meteor', 'ui.router', 'accounts.ui'])
     .controller('TopicContoller', function($scope, $stateParams, $meteor){
         $scope.subscribe('topic', function(){ return [$stateParams.topicId]; });
         $scope.subscribe('threads', function(){ return [$stateParams.topicId]; });
-        $scope.clickTopic = function() {
-            alert(this._id);
+        $scope.clickTopic = function(id) {
+            alert(id);
         };
         $scope.helpers({
             topic: function() {
